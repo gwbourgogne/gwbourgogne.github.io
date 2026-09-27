@@ -33,19 +33,22 @@ function render(){
         <span class="meta">${p.category} • Reference: ${p.retailer}</span>
         <div class="card-bottom">
           <span class="price">${money(p.price)}</span>
-          <button class="add" onclick='addToCart(${JSON.stringify(p).replace(/'/g,"&#39;")})'>Add</button>
+          <button class="add" data-index="${PRODUCTS.indexOf(p)}">Add</button>
         </div>
       </div>
     </article>`).join('') : `<div class="empty">No products match your filters.</div>`;
+
+  document.querySelectorAll('.add').forEach(btn=>btn.addEventListener('click',()=>addToCart(PRODUCTS[btn.dataset.index])));
 }
 [search,category,brand,sort].forEach(el=>el.addEventListener(el===search?'input':'change',render));
 
-function addToCart(p){cart.push(p); updateCart();}
+function addToCart(p){cart.push(p); updateCart(); openCart();}
 function updateCart(){
   document.getElementById('cartCount').textContent=cart.length;
   document.getElementById('cartItems').innerHTML=cart.length?cart.map((p,i)=>`
-    <div class="cart-item"><div><b>${p.name}</b><br><span>${p.brand}</span></div><div><b>${money(p.price)}</b><br><button onclick="removeItem(${i})">Remove</button></div></div>`).join(''):'<p>Your cart is empty.</p>';
+    <div class="cart-item"><div><b>${p.name}</b><br><span>${p.brand}</span></div><div><b>${money(p.price)}</b><br><button data-remove="${i}">Remove</button></div></div>`).join(''):'<p>Your cart is empty.</p>';
   document.getElementById('cartTotal').textContent=money(cart.reduce((s,p)=>s+p.price,0));
+  document.querySelectorAll('[data-remove]').forEach(btn=>btn.addEventListener('click',()=>removeItem(Number(btn.dataset.remove))));
 }
 function removeItem(i){cart.splice(i,1);updateCart();}
 function openCart(){document.getElementById('cartPanel').classList.add('open');document.getElementById('overlay').classList.add('show');}
