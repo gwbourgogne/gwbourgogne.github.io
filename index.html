@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>gwbourgogne | School Supplies</title>
+<meta name="description" content="gwbourgogne school supplies store — notebooks, backpacks, pens, art supplies, calculators and classroom essentials from popular brands.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#home">
+    <img src="assets/gwbourgogne-logo.webp" alt="gwbourgogne logo">
+    <span>gwbourgogne</span>
+  </a>
+  <nav>
+    <a href="#shop">Shop</a>
+    <a href="#brands">Brands</a>
+    <a href="#about">About</a>
+    <button id="cartBtn" class="cart-btn">Cart <span id="cartCount">0</span></button>
+  </nav>
+</header>
+
+<main id="home">
+<section class="hero">
+  <div class="hero-copy">
+    <span class="eyebrow">BACK TO SCHOOL • 2026</span>
+    <h1>Everything students need, all in one place.</h1>
+    <p>Shop school essentials from trusted brands including Crayola, Ticonderoga, Sharpie, EXPO, Elmer's, Paper Mate, Fiskars, Five Star, JanSport and more.</p>
+    <div class="hero-actions">
+      <a class="primary" href="#shop">Shop supplies</a>
+      <a class="secondary" href="#brands">Explore brands</a>
+    </div>
+    <div class="hero-points">
+      <span>✓ 30 products</span><span>✓ 15+ brands</span><span>✓ Real reference prices</span>
+    </div>
+  </div>
+  <div class="hero-card">
+    <img src="assets/gwbourgogne-logo.webp" alt="gwbourgogne school supplies">
+    <div><b>Smart school shopping</b><span>Organized by category, brand and price.</span></div>
+  </div>
+</section>
+
+<section class="trust">
+  <div><b>Popular Brands</b><span>Trusted classroom essentials</span></div>
+  <div><b>Easy Shopping</b><span>Search, filter and add to cart</span></div>
+  <div><b>Clear Pricing</b><span>USD reference prices from major retailers</span></div>
+  <div><b>Student Ready</b><span>From preschool to college</span></div>
+</section>
+
+<section id="shop" class="shop-section">
+  <div class="section-heading">
+    <div><span class="eyebrow">SHOP THE COLLECTION</span><h2>School supplies for every class</h2></div>
+    <p>Prices shown are reference retail prices checked from major U.S. retailers and can change.</p>
+  </div>
+
+  <div class="controls">
+    <input id="search" type="search" placeholder="Search products or brands...">
+    <select id="category"><option value="all">All categories</option></select>
+    <select id="brand"><option value="all">All brands</option></select>
+    <select id="sort">
+      <option value="featured">Featured</option>
+      <option value="low">Price: low to high</option>
+      <option value="high">Price: high to low</option>
+      <option value="az">Name: A–Z</option>
+    </select>
+  </div>
+
+  <div id="productGrid" class="product-grid"></div>
+</section>
+
+<section id="brands" class="brands-section">
+  <span class="eyebrow">BRANDS WE FEATURE</span>
+  <h2>Different brands, more choice.</h2>
+  <div class="brand-cloud">
+    <span>Crayola</span><span>Ticonderoga</span><span>Sharpie</span><span>EXPO</span>
+    <span>Elmer's</span><span>Paper Mate</span><span>Fiskars</span><span>Five Star</span>
+    <span>JanSport</span><span>Texas Instruments</span><span>Cra-Z-Art</span><span>Top Flight</span>
+    <span>Office Depot</span><span>Mountain Edge</span><span>Ava</span>
+  </div>
+</section>
+
+<section id="about" class="about-section">
+  <div>
+    <span class="eyebrow">ABOUT GWBOURGOGNE</span>
+    <h2>Built for students, parents and teachers.</h2>
+  </div>
+  <p>gwbourgogne is an online school-supplies concept store focused on useful, recognizable products at clear prices. The site includes writing tools, notebooks, art materials, backpacks, calculators, organization supplies and classroom essentials.</p>
+</section>
+
+<section class="price-note">
+  <b>Price note:</b> Product prices in this demo are reference prices observed from U.S. retailers in September 2026. Promotions, inventory and local pricing may change. Verify the current retailer price before fulfilling an order.
+</section>
+</main>
+
+<footer>
+  <div class="footer-brand"><img src="assets/gwbourgogne-logo.webp" alt=""><div><b>gwbourgogne</b><span>School supplies for every step of learning.</span></div></div>
+  <div><b>Customer Care</b><span>support@gwbourgogne.com</span><span>Mon–Sat • 9 AM–6 PM</span></div>
+  <div><b>Store</b><span>School Supplies</span><span>United States</span></div>
+  <div><b>Quick Links</b><a href="#shop">Shop</a><a href="#brands">Brands</a></div>
+</footer>
+
+<div id="cartPanel" class="cart-panel">
+  <div class="cart-head"><h3>Your cart</h3><button id="closeCart">×</button></div>
+  <div id="cartItems" class="cart-items"></div>
+  <div class="cart-total"><span>Total</span><b id="cartTotal">$0.00</b></div>
+  <button class="checkout" onclick="alert('Demo checkout — connect your payment provider before going live.')">Proceed to checkout</button>
+</div>
+<div id="overlay" class="overlay"></div>
+
+<script>
+const PRODUCTS = [{"name": "Crayola Crayons — 24 Count", "brand": "Crayola", "category": "Art & Coloring", "price": 1.89, "retailer": "Office Depot", "icon": "🖍️", "tag": "Bestseller"}, {"name": "Crayola Broad Line Markers — 10 Count", "brand": "Crayola", "category": "Art & Coloring", "price": 4.09, "retailer": "Office Depot", "icon": "🎨", "tag": "Popular"}, {"name": "Crayola Colored Pencils — 12 Count", "brand": "Crayola", "category": "Art & Coloring", "price": 3.99, "retailer": "Office Depot", "icon": "✏️", "tag": ""}, {"name": "Crayola Construction Paper — 96 Sheets", "brand": "Crayola", "category": "Paper & Notebooks", "price": 4.09, "retailer": "Office Depot", "icon": "📄", "tag": ""}, {"name": "Ticonderoga #2 Pencils — 18 Count", "brand": "Ticonderoga", "category": "Writing", "price": 8.49, "retailer": "Office Depot", "icon": "✏️", "tag": "Teacher Pick"}, {"name": "Ticonderoga #2 Pencils — 24 Count", "brand": "Ticonderoga", "category": "Writing", "price": 4.49, "retailer": "Kroger", "icon": "✏️", "tag": "Sale"}, {"name": "Sharpie Permanent Markers — 5 Count", "brand": "Sharpie", "category": "Writing", "price": 6.19, "retailer": "Office Depot", "icon": "🖊️", "tag": ""}, {"name": "Sharpie Permanent Markers — 8 Count", "brand": "Sharpie", "category": "Writing", "price": 8.52, "retailer": "Walmart", "icon": "🖊️", "tag": ""}, {"name": "EXPO Dry-Erase Markers — 4 Count", "brand": "EXPO", "category": "Classroom", "price": 7.99, "retailer": "Office Depot", "icon": "🧑‍🏫", "tag": ""}, {"name": "EXPO Fine Tip Markers — 8 Count", "brand": "EXPO", "category": "Classroom", "price": 9.99, "retailer": "Staples", "icon": "🧑‍🏫", "tag": "Sale"}, {"name": "Elmer's Washable Glue Sticks — 4 Pack", "brand": "Elmer's", "category": "Craft & Glue", "price": 4.98, "retailer": "Staples", "icon": "🧴", "tag": ""}, {"name": "Elmer's Purple Glue Sticks — 6 Count", "brand": "Elmer's", "category": "Craft & Glue", "price": 2.49, "retailer": "Kroger", "icon": "🧴", "tag": "Sale"}, {"name": "Paper Mate Clear Point Mechanical Pencils — 3 Pack", "brand": "Paper Mate", "category": "Writing", "price": 6.79, "retailer": "Target", "icon": "✒️", "tag": ""}, {"name": "Paper Mate Profile Mech Pencils — 8 Pack", "brand": "Paper Mate", "category": "Writing", "price": 10.99, "retailer": "Staples", "icon": "✒️", "tag": ""}, {"name": "Fiskars Student Scissors — 7 in", "brand": "Fiskars", "category": "Craft & Glue", "price": 4.48, "retailer": "Walmart", "icon": "✂️", "tag": ""}, {"name": "Five Star 3-Subject Wide Ruled Notebook", "brand": "Five Star", "category": "Paper & Notebooks", "price": 14.99, "retailer": "ShopRite", "icon": "📓", "tag": ""}, {"name": "Office Depot Composition Book — 100 Sheets", "brand": "Office Depot", "category": "Paper & Notebooks", "price": 3.99, "retailer": "Office Depot", "icon": "📕", "tag": ""}, {"name": "Top Flight 1-Subject Notebook — 70 Sheets", "brand": "Top Flight", "category": "Paper & Notebooks", "price": 0.59, "retailer": "Kroger", "icon": "📘", "tag": "Value"}, {"name": "Just Basics Spiral Notebook — 70 Sheets", "brand": "Just Basics", "category": "Paper & Notebooks", "price": 2.99, "retailer": "Office Depot", "icon": "📒", "tag": ""}, {"name": "Office Depot 2-Pocket Poly Folder", "brand": "Office Depot", "category": "Organization", "price": 1.79, "retailer": "Office Depot", "icon": "📁", "tag": ""}, {"name": "Office Depot Filler Paper — Wide Ruled", "brand": "Office Depot", "category": "Paper & Notebooks", "price": 3.09, "retailer": "Office Depot", "icon": "📃", "tag": ""}, {"name": "Cra-Z-Art Plastic School Box", "brand": "Cra-Z-Art", "category": "Organization", "price": 3.19, "retailer": "Office Depot", "icon": "🧰", "tag": ""}, {"name": "Cra-Z-Art Crayons — 24 Count", "brand": "Cra-Z-Art", "category": "Art & Coloring", "price": 0.99, "retailer": "ShopRite", "icon": "🖍️", "tag": "Value"}, {"name": "JanSport Big Student Backpack — Black", "brand": "JanSport", "category": "Backpacks", "price": 46.49, "retailer": "Office Depot", "icon": "🎒", "tag": "Featured"}, {"name": "Mountain Edge Bungee Backpack — Black", "brand": "Mountain Edge", "category": "Backpacks", "price": 9.99, "retailer": "Office Depot", "icon": "🎒", "tag": "Sale"}, {"name": "Texas Instruments TI-84 Plus CE Calculator", "brand": "Texas Instruments", "category": "Calculators", "price": 164.99, "retailer": "Office Depot", "icon": "🧮", "tag": "Advanced"}, {"name": "Ava Scientific Calculator", "brand": "Ava", "category": "Calculators", "price": 14.99, "retailer": "ShopRite", "icon": "🧮", "tag": ""}, {"name": "2026–2027 Stellar Academic Planner", "brand": "Office Depot", "category": "Organization", "price": 10.19, "retailer": "Office Depot", "icon": "📅", "tag": "New"}, {"name": "Neon Eraser Caps — 12 Pack", "brand": "Office Depot", "category": "Writing", "price": 1.69, "retailer": "Office Depot", "icon": "🧽", "tag": ""}, {"name": "Smash Icon Sipper Bottle — 27 oz", "brand": "Smash", "category": "Lunch & Daily", "price": 7.49, "retailer": "Office Depot", "icon": "🥤", "tag": "Sale"}];
+</script>
+<script src="script.js"></script>
+</body>
+</html>
