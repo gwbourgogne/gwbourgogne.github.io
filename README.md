@@ -24,3 +24,7 @@ Prices are reference retail prices observed from major U.S. retailers in Septemb
 
 ## Publish on GitHub Pages
 Upload the contents of this ZIP to your `gwbourgogne.github.io` repository. Make sure `index.html` is at the repository root.
+
+## Logo compatibility fix
+- Replaced the logo references with **PNG** for broader browser and GitHub Pages compatibility
+- Added **favicon.png** and **favicon.ico** so the store icon appears in the browser tab
